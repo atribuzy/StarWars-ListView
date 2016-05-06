@@ -11,8 +11,9 @@ namespace StarWars_ListView
 	{
 		public App ()
 		{
-			// The root page of your application
-			MainPage = new Home();
+            // The root page of your application
+            var startPage = new StartPage();
+            MainPage = new NavigationPage(startPage);
 		}
 
 		protected override void OnStart ()

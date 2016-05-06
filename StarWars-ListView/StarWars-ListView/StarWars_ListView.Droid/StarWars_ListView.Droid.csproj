@@ -91,6 +91,12 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharpTrooper\SharpTrooper.csproj">
+      <Project>{64fa6a89-9042-42a7-a331-a8d6fbc79340}</Project>
+      <Name>SharpTrooper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\StarWars_ListView\StarWars_ListView.projitems" Label="Shared" Condition="Exists('..\StarWars_ListView\StarWars_ListView.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

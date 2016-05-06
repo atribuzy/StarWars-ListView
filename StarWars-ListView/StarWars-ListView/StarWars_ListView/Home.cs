@@ -1,8 +1,11 @@
-﻿using System;
+﻿using SharpTrooper.Core;
+using SharpTrooper.Entities;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace StarWars_ListView
@@ -12,10 +15,14 @@ namespace StarWars_ListView
 		Label chosenLabel;
         public Home ()
 		{
-			string[] characterNames = new string[] { "C-3PO", "Chewbacca", "Darth Vader", "Luke SkyWalker",
-			"Princess Leia","R2D2", "Yoda" };
+            //string[] characterNames = new string[] { "C-3PO", "Chewbacca", "Darth Vader", "Luke SkyWalker",
+            //"Princess Leia","R2D2", "Yoda" };
+            var characters = GetAllPepole();
 
-			Label title = new Label
+            
+
+
+            Label title = new Label
 			{
 				Text = "Star Wars ListView",
 				HorizontalOptions = LayoutOptions.Center,
@@ -24,7 +31,8 @@ namespace StarWars_ListView
 			};
 
 			ListView list = new ListView();
-			list.ItemsSource = characterNames;
+			list.ItemsSource = characters;
+            
 			list.ItemTapped += List_ItemTapped;
 
 			chosenLabel = new Label
@@ -41,9 +49,21 @@ namespace StarWars_ListView
 			this.Padding = new Thickness(10, Device.OnPlatform(20, 10, 10), 10, 10);
 		}
 
+        public List<People> GetAllPepole()
+        {
+            var characters = new List<People>();
+            SharpTrooperCore core = new SharpTrooperCore();
+            var getPepoleResult = core.GetAllPeople("1");
+            characters = getPepoleResult.results;
+                        
+            return characters;
+        }
+
 		private void List_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
-			chosenLabel.Text = "You Selected " + e.Item;
+            SharpTrooperCore core = new SharpTrooperCore();
+            core.GetPeople(e.Item.ToString());
+            chosenLabel.Text = "You Selected " + e.Item;
 		}
 	}
 }

@@ -177,6 +177,12 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\SharpTrooper\SharpTrooper.csproj">
+      <Project>{64FA6A89-9042-42A7-A331-A8D6FBC79340}</Project>
+      <Name>SharpTrooper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\StarWars_ListView\StarWars_ListView.projitems" Label="Shared" Condition="Exists('..\StarWars_ListView\StarWars_ListView.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
